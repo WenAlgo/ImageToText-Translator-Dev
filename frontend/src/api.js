@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5005";
+const API_BASE = "https://imagetotext-53145842896.us-east4.run.app";
 
 function getAuthHeader() {
     const token = localStorage.getItem("token");
