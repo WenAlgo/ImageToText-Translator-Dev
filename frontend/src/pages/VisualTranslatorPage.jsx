@@ -1,11 +1,12 @@
 import React, { useState, useRef } from "react";
 import { apiExtract, apiTranslate } from "../api";
 
+const AUTO_DETECT_OPTION = {
+    value: "auto",
+    label: "Auto Detect (English, Chinese, Russian)",
+};
+
 const LANGUAGE_OPTIONS = [
-    {
-        value: "auto",
-        label: "Auto Detect (English, Chinese, Russian)",
-    },
     // { value: "ar", label: "Arabic" },
     { value: "az", label: "Azerbaijani" },
     { value: "be", label: "Belarusian" },
@@ -241,6 +242,9 @@ export default function VisualTranslatorPage() {
                                     setInputLanguage(e.target.value)
                                 }
                             >
+                                <option value={AUTO_DETECT_OPTION.value}>
+                                    {AUTO_DETECT_OPTION.label}
+                                </option>
                                 {LANGUAGE_OPTIONS.map((opt) => (
                                     <option key={opt.value} value={opt.value}>
                                         {opt.label}
