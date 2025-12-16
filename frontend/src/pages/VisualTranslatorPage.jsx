@@ -54,7 +54,7 @@ const LANGUAGE_OPTIONS = [
     { value: "ne", label: "Nepali" },
     { value: "no", label: "Norwegian" },
     { value: "or", label: "Oriya" },
-    { value: "pa", label: "Punjabi" },
+    // { value: "pa", label: "Punjabi" },
     { value: "pl", label: "Polish" },
     { value: "pt", label: "Portuguese" },
     { value: "ro", label: "Romanian" },
@@ -68,7 +68,7 @@ const LANGUAGE_OPTIONS = [
     { value: "sv", label: "Swedish" },
     { value: "tl", label: "Tagalog" },
     { value: "tg", label: "Tajik" },
-    { value: "ta", label: "Tamil" },
+    // { value: "ta", label: "Tamil" },
     { value: "te", label: "Telugu" },
     { value: "th", label: "Thai" },
     { value: "tr", label: "Turkish" },
@@ -154,6 +154,7 @@ export default function VisualTranslatorPage() {
             });
 
             setTranslatedResult(data.translated_text);
+            setInputLanguage(data.detected_language);
         } catch (err) {
             setError(err.message);
         } finally {

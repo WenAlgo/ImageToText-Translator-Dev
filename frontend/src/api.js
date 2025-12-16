@@ -1,4 +1,4 @@
-const API_BASE = "https://imagetotext-53145842896.us-east4.run.app";
+const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5005";
 
 function getAuthHeader() {
     const token = localStorage.getItem("token");
@@ -76,10 +76,6 @@ export async function apiExtract({ file, inputLanguage, textType }) {
 
 // ---------- Translate ----------
 export async function apiTranslate({ text, input_language, language }) {
-    // Convert language code for translation API: ch_sim -> zh
-    input_language = input_language === "ch_sim" ? "zh" : input_language;
-    language = language === "ch_sim" ? "zh" : language;
-
     const res = await fetch(`${API_BASE}/api/translate`, {
         method: "POST",
         headers: {
@@ -95,7 +91,7 @@ export async function apiTranslate({ text, input_language, language }) {
 
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || "Translate failed");
-    return data; // { translated_text }
+    return data; // { input_text, translated_text, detected_language }
 }
 
 // ---------- History ----------
