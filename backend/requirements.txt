@@ -27,5 +27,5 @@ opencv-contrib-python==4.7.0.72
 jiwer==3.0.3
 numpy==1.26.4
 
-# Dataset Loader
-# datasets==2.18.0
+# Deployment
+gunicorn==21.2.0
